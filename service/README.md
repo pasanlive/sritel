@@ -1,7 +1,3 @@
-#sritel
-
-Sri Tel - Assignment
-____________
 ###sritel - Service
 
 
