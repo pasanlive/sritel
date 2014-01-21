@@ -24,7 +24,8 @@ public class VasController {
     private final static Logger log = LoggerFactory.getLogger(VasController.class);
 
     @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody
+    public
+    @ResponseBody
     VasList getVasList() {
         log.debug(" Get all vas service list");
         VasList vasList = new VasList();
@@ -32,7 +33,8 @@ public class VasController {
     }
 
     @RequestMapping(value = "/{vasCode}", method = RequestMethod.GET)
-    public @ResponseBody
+    public
+    @ResponseBody
     Vas getVas(@PathVariable("vasCode") int vasId, @RequestParam("phoneNumber") String phoneNumber) {
         log.debug(" Get single vas service data for vasCode {}", vasId);
         Vas vas = new Vas();
@@ -40,8 +42,9 @@ public class VasController {
     }
 
     //subject to change
-    @RequestMapping( method = RequestMethod.POST)
-    public @ResponseBody
+    @RequestMapping(method = RequestMethod.POST)
+    public
+    @ResponseBody
     Vas addVas(@RequestBody VasUpdate vasUpdate) {
         log.debug(" Add vas service data for vasCode {}", vasUpdate.getVasCode());
         Vas vas = new Vas();
@@ -49,8 +52,9 @@ public class VasController {
     }
 
     //subject to change
-    @RequestMapping( method = RequestMethod.PUT)
-    public @ResponseBody
+    @RequestMapping(method = RequestMethod.PUT)
+    public
+    @ResponseBody
     Vas updateVas(@RequestBody VasUpdate vasUpdate) {
         log.debug(" Update vas service data for vasCode {}", vasUpdate.getVasCode());
         Vas vas = new Vas();
@@ -58,11 +62,11 @@ public class VasController {
     }
 
     //subject to change
-    @RequestMapping( method = RequestMethod.DELETE)
-    public @ResponseBody
-    Vas removeVas(@RequestBody VasUpdate vasUpdate) {
-        log.debug("Delete vas service data for vasCode {}", vasUpdate.getVasCode());
-        Vas vas = new Vas();
-        return vas;
+    @RequestMapping(value = "/{vasCode}", method = RequestMethod.DELETE)
+    public
+    @ResponseBody
+    Boolean removeVas(@PathVariable("VasCode") int vasId) {
+        log.debug("Delete vas service data for vasCode {}", vasId);
+        return true;
     }
 }
