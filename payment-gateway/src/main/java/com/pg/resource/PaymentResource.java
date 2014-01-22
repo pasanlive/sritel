@@ -22,6 +22,7 @@ public class PaymentResource {
 
     @POST
     @Consumes("application/json")
+    @Produces("application/json")
     public Response doPayment(Payment payment) {
         log.info("try to do payment. amount is {}", String.valueOf(payment.getAmount()));
         SuccesfullPayment sp = new SuccesfullPayment();
