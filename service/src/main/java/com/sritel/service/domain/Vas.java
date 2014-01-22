@@ -13,6 +13,15 @@ public class Vas {
     private String activationCode;
     private String deactivationCode;
 
+    public Vas() {
+        this.code = 100;
+        this.name = "ringTone";
+        this.description = "Ring tones are money";
+        this.chargePerDay = 5;
+        this.activationCode = "a100";
+        this.deactivationCode = "d100";
+    }
+
     public String getActivationCode() {
         return activationCode;
     }

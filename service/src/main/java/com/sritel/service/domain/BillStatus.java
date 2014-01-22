@@ -1,5 +1,7 @@
 package com.sritel.service.domain;
 
+import java.util.Date;
+
 /**
  *
  * @author Maleen Chethiya
@@ -9,9 +11,19 @@ public class BillStatus {
     private String phoneNumber;
     private double outstandingAmount;
     private double lastPaidAmount;
-    private double lastpaidDate;
+    private Date lastpaidDate;
     private double creditLimit;
     private Boolean activationStatus;
+
+    public BillStatus() {
+        this.phoneNumber = "727107747";
+        this.outstandingAmount = 2000;
+        this.lastPaidAmount = 1000;
+        Date date = new Date();
+        this.lastpaidDate = date;
+        this.creditLimit = 5000;
+        this.activationStatus = true;
+    }
 
     public Boolean getActivationStatus() {
         return activationStatus;
@@ -37,11 +49,11 @@ public class BillStatus {
         this.lastPaidAmount = lastPaidAmount;
     }
 
-    public double getLastpaidDate() {
+    public Date getLastpaidDate() {
         return lastpaidDate;
     }
 
-    public void setLastpaidDate(double lastpaidDate) {
+    public void setLastpaidDate(Date lastpaidDate) {
         this.lastpaidDate = lastpaidDate;
     }
 

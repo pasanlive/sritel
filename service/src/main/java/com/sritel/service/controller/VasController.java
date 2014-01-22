@@ -35,9 +35,10 @@ public class VasController {
     @RequestMapping(value = "/{vasCode}", method = RequestMethod.GET)
     public
     @ResponseBody
-    Vas getVas(@PathVariable("vasCode") int vasId, @RequestParam("phoneNumber") String phoneNumber) {
+    Vas getVas(@PathVariable("vasCode") int vasId) {
         log.debug(" Get single vas service data for vasCode {}", vasId);
         Vas vas = new Vas();
+        vas.setCode(vasId);
         return vas;
     }
 
@@ -48,6 +49,7 @@ public class VasController {
     Vas addVas(@RequestBody VasUpdate vasUpdate) {
         log.debug(" Add vas service data for vasCode {}", vasUpdate.getVasCode());
         Vas vas = new Vas();
+        vas.setCode(vasUpdate.getVasCode());
         return vas;
     }
 
@@ -58,6 +60,7 @@ public class VasController {
     Vas updateVas(@RequestBody VasUpdate vasUpdate) {
         log.debug(" Update vas service data for vasCode {}", vasUpdate.getVasCode());
         Vas vas = new Vas();
+        vas.setCode(vasUpdate.getVasCode());
         return vas;
     }
 
@@ -65,7 +68,7 @@ public class VasController {
     @RequestMapping(value = "/{vasCode}", method = RequestMethod.DELETE)
     public
     @ResponseBody
-    Boolean removeVas(@PathVariable("VasCode") int vasId) {
+    Boolean removeVas(@PathVariable("vasCode") int vasId) {
         log.debug("Delete vas service data for vasCode {}", vasId);
         return true;
     }

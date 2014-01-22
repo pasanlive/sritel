@@ -4,7 +4,6 @@ import com.sritel.service.domain.BillStatus;
 import com.sritel.service.domain.MonthlyBill;
 import com.sritel.service.domain.UpdateBill;
 import java.util.Calendar;
-import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -31,6 +30,7 @@ public class BillingController {
     BillStatus getBillStatus(@RequestParam("phoneNumber") String phoneNumber) {
         log.debug(" Get current bil status");
         BillStatus billStatus = new BillStatus();
+        billStatus.setPhoneNumber(phoneNumber);
         return billStatus;
     }
 
@@ -44,6 +44,11 @@ public class BillingController {
         }
         log.debug(" Getting detailed bill of specified month : {}", month);
         MonthlyBill monthlyBill = new MonthlyBill();
+        monthlyBill.setBillingMonth(month);
+        monthlyBill.setPhoneNumber(phoneNumber);
+        if (year > 0) {
+            monthlyBill.setBillingYear(year);
+        }
         return monthlyBill;
     }
 
@@ -51,8 +56,11 @@ public class BillingController {
     public
     @ResponseBody
     BillStatus updateBillAmount(@RequestBody UpdateBill updateBill) {
-        log.debug(" Get current bil status");
+        log.debug(" Get current bill status");
         BillStatus billStatus = new BillStatus();
+        billStatus.setLastPaidAmount(updateBill.getUpdatingAmount());
+        billStatus.setOutstandingAmount(billStatus.getOutstandingAmount() - updateBill.getUpdatingAmount());
+        billStatus.setPhoneNumber(updateBill.getPhoneNumber());
         return billStatus;
     }
 }

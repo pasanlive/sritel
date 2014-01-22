@@ -1,5 +1,6 @@
 package com.sritel.service.domain;
 
+import java.text.DateFormat;
 import java.util.Date;
 
 /**
@@ -11,7 +12,7 @@ public class MonthlyBill {
     private String phoneNumber;
     private double outstandingAmount;
     private double lastPaidAmount;
-    private double lastpaidDate;
+    private Date lastpaidDate;
     private double creditLimit;
     private int noOfUnits;
     private int noOfMessages;
@@ -19,6 +20,21 @@ public class MonthlyBill {
     private Date biilingDateTo;
     private int billingMonth;
     private int billingYear;
+
+    public MonthlyBill() {
+        this.phoneNumber = "727107747";
+        this.outstandingAmount = 2000;
+        this.lastPaidAmount = 1000;
+        Date billingDate = new Date();
+        this.lastpaidDate = billingDate;
+        this.creditLimit = 5000;
+        this.noOfUnits = 300;
+        this.noOfMessages = 100;
+        this.biilingDateFrom = billingDate;
+        this.biilingDateTo = billingDate;
+        this.billingMonth = 12;
+        this.billingYear = 2013;
+    }
 
     public Date getBiilingDateFrom() {
         return biilingDateFrom;
@@ -68,11 +84,11 @@ public class MonthlyBill {
         this.lastPaidAmount = lastPaidAmount;
     }
 
-    public double getLastpaidDate() {
+    public Date getLastpaidDate() {
         return lastpaidDate;
     }
 
-    public void setLastpaidDate(double lastpaidDate) {
+    public void setLastpaidDate(Date lastpaidDate) {
         this.lastpaidDate = lastpaidDate;
     }
 

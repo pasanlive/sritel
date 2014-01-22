@@ -12,6 +12,11 @@ public class VasUpdate {
     private int vasCode;
     private String phoneNumber;
 
+    public VasUpdate() {
+        this.vasCode = 102;
+        this.phoneNumber = "727107747";
+    }
+
     public int getVasCode() {
         return vasCode;
     }

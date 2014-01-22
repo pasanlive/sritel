@@ -8,15 +8,11 @@ public class UpdateBill {
 
     private String phoneNumber;
     private double updatingAmount;
-    private int earnedPoints;
-    private int totalPoints;
 
-    public int getEarnedPoints() {
-        return earnedPoints;
-    }
+    public UpdateBill() {
+        this.phoneNumber = "727107747";
+        this.updatingAmount = 100;
 
-    public void setEarnedPoints(int earnedPoints) {
-        this.earnedPoints = earnedPoints;
     }
 
     public String getPhoneNumber() {
@@ -25,14 +21,6 @@ public class UpdateBill {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public int getTotalPoints() {
-        return totalPoints;
-    }
-
-    public void setTotalPoints(int totalPoints) {
-        this.totalPoints = totalPoints;
     }
 
     public double getUpdatingAmount() {
